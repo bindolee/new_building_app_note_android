@@ -43,6 +43,11 @@ public class NotesProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(Uri uri, String[] strings, String selection, String[] strings1, String s1) {
+
+        //Added if to return the single row from everyraw.
+        if (uriMatcher.match(uri) == NOTES_ID){
+            selection = DBOpenHelper.NOTE_ID + "=" + uri.getLastPathSegment();
+        }
         return database.query(DBOpenHelper.TABLE_NOTES, DBOpenHelper.ALL_COLUMNS,
                 selection, null, null,null,
                 DBOpenHelper.NOTE_CREATED + " DESC");
