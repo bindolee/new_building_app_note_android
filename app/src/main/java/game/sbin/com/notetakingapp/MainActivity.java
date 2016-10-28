@@ -35,14 +35,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String[] from = {DBOpenHelper.NOTE_TEXT};
-        int[] to = {R.id.tvNote};
-
-        cursorAdapter = new SimpleCursorAdapter(this,
-                R.layout.note_list_item, null, from, to, 0);
+        cursorAdapter = new NotesCursorAdapter(this, null, 0);
 
         ListView lv = (ListView) findViewById(android.R.id.list);
         lv.setAdapter(cursorAdapter);
+
         getLoaderManager().initLoader(0,null, this);
     }
 
