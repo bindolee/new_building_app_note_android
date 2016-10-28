@@ -43,6 +43,7 @@ public class EditorActivity extends AppCompatActivity {
 
             Cursor cursor = getContentResolver().query(uri,
                     DBOpenHelper.ALL_COLUMNS, noteFilter, null, null);
+            assert cursor != null;
             cursor.moveToFirst();
             oldText = cursor.getString(cursor.getColumnIndex(DBOpenHelper.NOTE_TEXT));
             editor.setText(oldText);

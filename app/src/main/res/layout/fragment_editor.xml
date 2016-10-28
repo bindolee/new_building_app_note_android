@@ -22,5 +22,7 @@
         android:layout_alignParentTop="true"
         android:ems="10"
         android:gravity="top"
-        android:inputType="textPersonName" />
+        android:inputType="textMultiLine|textCapSentences"
+        android:hint="@string/enter_note_here"
+        />
 </RelativeLayout>
